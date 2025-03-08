@@ -1,6 +1,7 @@
 import tkinter as tk
 from tkinter import messagebox
 
+
 def friends(name, rank, reason):
     name_list = []
     rank_list = []
@@ -15,6 +16,7 @@ def friends(name, rank, reason):
 
 
 def display_results():
+    # getting user input
     name = name_entry.get()
     rank = rank_entry.get()
     reason = reason_entry.get()
@@ -30,6 +32,7 @@ def display_results():
     # add new rank without removing previous
     for name, rank, reason in result:
         listbox.insert(tk.END, f"{name} has a rank of {rank} because {reason}.")
+        # tk.END adds new entry to bottom
 
     # clear all fields after submission
     name_entry.delete(0, tk.END)
@@ -56,9 +59,9 @@ try:
 
     # rank entry
     rank_label = tk.Label(window, text="Rank (1-100):", font=("Comic Sans MS", 12))
-    rank_label.pack()
-    rank_entry = tk.Entry(window)
-    rank_entry.pack(pady=5)
+    rank_label.pack()  # adds label to available position
+    rank_entry = tk.Entry(window)  # creates an input field for rank
+    rank_entry.pack(pady=5)  # gives 5 pixels of padding above and below
 
     # reason entry
     reason_label = tk.Label(window, text="Why?:", font=("Comic Sans MS", 12))
